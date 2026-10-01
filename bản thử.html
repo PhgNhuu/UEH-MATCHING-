@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>UEH MATCHING - Ghép đôi học tập</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<!-- ========================================
+     HEADER
+======================================== -->
+
+<header>
+
+    <div class="logo">
+        📚 UEH MATCHING 
+    </div>
+
+
+    <nav>
+
+        <button onclick="showPage('home')">
+            Trang chủ
+        </button>
+
+        <button onclick="showPage('login')">
+            Đăng nhập
+        </button>
+
+        <button onclick="showPage('register')">
+            Đăng ký
+        </button>
+
+
+        <!-- THÔNG BÁO -->
+
+        <div class="notification-wrapper">
+
+            <button
+                class="notification-btn"
+                onclick="toggleNotifications()"
+            >
+                🔔
+
+                <span
+                    id="notificationCount"
+                    class="notification-count hidden"
+                >
+                    0
+                </span>
+
+            </button>
+
+
+            <div
+                id="notificationPanel"
+                class="notification-panel hidden"
+            >
+
+                <div class="notification-title">
+                    🔔 Thông báo
+                </div>
+
+
+                <div
+                    id="notificationList"
+                    class="notification-list"
+                >
+
+                    <p class="no-notification">
+                        Chưa có thông báo.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+</header>
+
+
+
+<!-- ========================================
+     TRANG CHỦ
+======================================== -->
+
+<section id="home" class="page">
+
+    <div class="hero">
+
+        <div class="hero-content">
+
+            <div class="hero-icon">
+                🤝
+            </div>
+
+
+            <h1>
+                Study Match
+            </h1>
+
+
+            <h2>
+                Ghép đôi để cùng nhau tiến bộ
+            </h2>
+
+
+            <p>
+                Tìm bạn học có điểm mạnh bổ trợ cho
+                điểm yếu của bạn, tạo lộ trình học tập
+                và cùng nhau tiến bộ.
+            </p>
+
+
+            <button
+                class="main-btn hero-btn"
+                onclick="showPage('register')"
+            >
+                🚀 Bắt đầu ngay
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <section class="features">
+
+        <h2>
+            🌟 Study Match hoạt động như thế nào?
+        </h2>
+
+
+        <div class="feature-grid">
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    👤
+                </div>
+
+                <h3>
+                    1. Tạo hồ sơ
+                </h3>
+
+                <p>
+                    Nhập môn bạn giỏi, môn cần hỗ trợ
+                    và thời gian học.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    📚
+                </div>
+
+                <h3>
+                    2. Nhận lộ trình
+                </h3>
+
+                <p>
+                    Hệ thống tạo lộ trình học tập
+                    dựa trên hồ sơ của bạn.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    🤝
+                </div>
+
+                <h3>
+                    3. Tìm bạn học
+                </h3>
+
+                <p>
+                    Tìm người có điểm mạnh phù hợp
+                    với điểm yếu của bạn.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    💬
+                </div>
+
+                <h3>
+                    4. Chat
+                </h3>
+
+                <p>
+                    Kết nối và trò chuyện với bạn học.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</section>
+
+
+
+<!-- ========================================
+     ĐĂNG KÝ
+======================================== -->
+
+<section
+    id="register"
+    class="page hidden"
+>
+
+    <div class="form-container">
+
+        <div class="form-card">
+
+            <div class="form-icon">
+                📝
+            </div>
+
+
+            <h2>
+                Tạo tài khoản
+            </h2>
+
+
+            <p class="form-description">
+                Đăng ký để bắt đầu sử dụng Study Match.
+            </p>
+
+
+            <label>
+                Họ và tên
+            </label>
+
+            <input
+                type="text"
+                id="registerName"
+                placeholder="Nhập tên của bạn"
+            >
+
+
+            <label>
+                Email
+            </label>
+
+            <input
+                type="email"
+                id="registerEmail"
+                placeholder="Nhập email"
+            >
+
+
+            <label>
+                Mật khẩu
+            </label>
+
+            <input
+                type="password"
+                id="registerPassword"
+                placeholder="Nhập mật khẩu"
+            >
+
+
+            <button
+                class="main-btn full-btn"
+                onclick="register()"
+            >
+                🎉 Tạo tài khoản
+            </button>
+
+
+            <p class="switch-text">
+
+                Đã có tài khoản?
+
+                <button
+                    class="text-btn"
+                    onclick="showPage('login')"
+                >
+                    Đăng nhập
+                </button>
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ========================================
+     ĐĂNG NHẬP
+======================================== -->
+
+<section
+    id="login"
+    class="page hidden"
+>
+
+    <div class="form-container">
+
+        <div class="form-card">
+
+            <div class="form-icon">
+                🔐
+            </div>
+
+
+            <h2>
+                Đăng nhập
+            </h2>
+
+
+            <p class="form-description">
+                Chào mừng bạn quay lại Study Match!
+            </p>
+
+
+            <label>
+                Email
+            </label>
+
+            <input
+                type="email"
+                id="loginEmail"
+                placeholder="Nhập email"
+            >
+
+
+            <label>
+                Mật khẩu
+            </label>
+
+            <input
+                type="password"
+                id="loginPassword"
+                placeholder="Nhập mật khẩu"
+            >
+
+
+            <button
+                class="main-btn full-btn"
+                onclick="login()"
+            >
+                🔓 Đăng nhập
+            </button>
+
+
+            <p class="switch-text">
+
+                Chưa có tài khoản?
+
+                <button
+                    class="text-btn"
+                    onclick="showPage('register')"
+                >
+                    Đăng ký
+                </button>
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ========================================
+     DASHBOARD
+======================================== -->
+
+<section
+    id="dashboard"
+    class="page hidden"
+>
+
+    <div class="dashboard-container">
+
+
+        <!-- CHÀO MỪNG -->
+
+        <div class="welcome-card">
+
+            <div>
+
+                <p>
+                    👋 Xin chào
+                </p>
+
+
+                <h1 id="userName">
+                    Bạn học
+                </h1>
+
+
+                <p>
+                    Hãy hoàn thiện hồ sơ để bắt đầu nhé!
+                </p>
+
+            </div>
+
+
+            <button
+                class="logout-btn"
+                onclick="logout()"
+            >
+                🚪 Đăng xuất
+            </button>
+
+        </div>
+
+
+
+        <!-- HỒ SƠ -->
+
+        <div class="profile-card">
+
+            <h2>
+                👤 Hồ sơ học tập
+            </h2>
+
+
+            <p class="card-description">
+                Nhập thông tin để tạo lộ trình
+                và tìm bạn học phù hợp.
+            </p>
+
+
+            <div class="profile-grid">
+
+
+                <div>
+
+                    <label>
+                        Tên của bạn
+                    </label>
+
+                    <input
+                        type="text"
+                        id="profileName"
+                        placeholder="Nhập tên"
+                    >
+
+                </div>
+
+
+                <div>
+
+                    <label>
+                        📚 Môn bạn giỏi
+                    </label>
+
+                    <select id="goodSubject">
+
+                        <option value="">
+                            -- Chọn môn --
+                        </option>
+
+                        <option value="Toán">
+                            Toán
+                        </option>
+
+                        <option value="Ngữ Văn">
+                            Ngữ Văn
+                        </option>
+
+                        <option value="Tiếng Anh">
+                            Tiếng Anh
+                        </option>
+
+                        <option value="Vật Lý">
+                            Vật Lý
+                        </option>
+
+                        <option value="Hóa Học">
+                            Hóa Học
+                        </option>
+
+                        <option value="Sinh Học">
+                            Sinh Học
+                        </option>
+
+                        <option value="Lịch Sử">
+                            Lịch Sử
+                        </option>
+
+                        <option value="Địa Lý">
+                            Địa Lý
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div>
+
+                    <label>
+                        📝 Môn cần hỗ trợ
+                    </label>
+
+                    <select id="weakSubject">
+
+                        <option value="">
+                            -- Chọn môn --
+                        </option>
+
+                        <option value="Toán">
+                            Toán
+                        </option>
+
+                        <option value="Ngữ Văn">
+                            Ngữ Văn
+                        </option>
+
+                        <option value="Tiếng Anh">
+                            Tiếng Anh
+                        </option>
+
+                        <option value="Vật Lý">
+                            Vật Lý
+                        </option>
+
+                        <option value="Hóa Học">
+                            Hóa Học
+                        </option>
+
+                        <option value="Sinh Học">
+                            Sinh Học
+                        </option>
+
+                        <option value="Lịch Sử">
+                            Lịch Sử
+                        </option>
+
+                        <option value="Địa Lý">
+                            Địa Lý
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div>
+
+                    <label>
+                        ⏰ Thời gian học
+                    </label>
+
+                    <select id="studyTime">
+
+                        <option value="">
+                            -- Chọn thời gian --
+                        </option>
+
+                        <option value="Buổi sáng">
+                            Buổi sáng
+                        </option>
+
+                        <option value="Buổi chiều">
+                            Buổi chiều
+                        </option>
+
+                        <option value="Buổi tối">
+                            Buổi tối
+                        </option>
+
+                        <option value="Cuối tuần">
+                            Cuối tuần
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <div class="profile-buttons">
+
+                <button
+                    class="main-btn"
+                    onclick="saveProfile()"
+                >
+                    💾 Lưu hồ sơ
+                </button>
+
+
+                <button
+                    class="main-btn secondary-btn"
+                    onclick="createMyStudyPlan()"
+                >
+                    📚 Tạo lộ trình
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ========================================
+             LỘ TRÌNH
+        ======================================== -->
+
+        <div
+            id="studyPlan"
+            class="study-plan hidden"
+        >
+
+            <div class="plan-header">
+
+                <div class="plan-icon">
+                    📚
+                </div>
+
+
+                <div>
+
+                    <h2>
+                        Lộ trình học tập của bạn
+                    </h2>
+
+                    <p>
+                        Lộ trình tham khảo được tạo
+                        dựa trên hồ sơ học tập.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div
+                id="planIntro"
+                class="plan-intro"
+            >
+            </div>
+
+
+            <div
+                id="planContent"
+                class="plan-content"
+            >
+            </div>
+
+        </div>
+
+
+
+        <!-- ========================================
+             TÌM BẠN
+        ======================================== -->
+
+        <div class="match-card">
+
+            <h2>
+                🤝 Tìm bạn học
+            </h2>
+
+
+            <p class="card-description">
+                Tìm những bạn có điểm mạnh bổ trợ
+                cho điểm yếu của bạn.
+            </p>
+
+
+            <button
+                class="main-btn"
+                onclick="findMatches()"
+            >
+                🔎 Tìm bạn phù hợp
+            </button>
+
+
+            <div
+                id="matches"
+                class="matches"
+            >
+            </div>
+
+        </div>
+
+
+
+        <!-- ========================================
+             CHAT
+        ======================================== -->
+
+        <div
+            id="chatSection"
+            class="chat-section hidden"
+        >
+
+            <div class="chat-header">
+
+                <div>
+
+                    <h2>
+                        💬 Chat với bạn học
+                    </h2>
+
+
+                    <p id="chatPartnerName">
+                        Chưa chọn bạn
+                    </p>
+
+                </div>
+
+
+                <button
+                    class="close-chat"
+                    onclick="closeChat()"
+                >
+                    ✕
+                </button>
+
+            </div>
+
+
+            <div
+                id="chatMessages"
+                class="chat-messages"
+            >
+            </div>
+
+
+            <div class="chat-input-area">
+
+                <input
+                    type="text"
+                    id="chatInput"
+                    placeholder="Nhập tin nhắn..."
+                    onkeydown="handleChatKey(event)"
+                >
+
+
+                <button
+                    class="main-btn"
+                    onclick="sendMessage()"
+                >
+                    Gửi
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ========================================
+     FOOTER
+======================================== -->
+
+<footer>
+
+    <div class="footer-logo">
+        📚 Study Match
+    </div>
+
+
+    <p>
+        Ghép đôi để cùng nhau tiến bộ.
+    </p>
+
+
+    <p class="copyright">
+        © 2026 Study Match
+    </p>
+
+</footer>
+
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
